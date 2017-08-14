@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript"
+	src="https://code.angularjs.org/1.6.1/angular.js"></script>
+<script type="text/javascript"
+	src="https://code.angularjs.org/1.6.1/angular-route.js"></script>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="css/muhcss.css" />
+<script src="angularjs/muhjs.js"></script>
+<meta charset="ISO-8859-1">
+<title>Expense Reimbursement</title>
+</head>
+<body ng-app="ers">
+	<nav class="navbar navbar-light" style="background-color: #525152;">
+		<span class="navbar-brand" style="cursor:default; color:white">Revature Reimbursements</span>
+		<ul class="navbar-nav mr-auto" style="list-style: none;">
+			<li class="navbar-item" ><a class="navbar-brand" href="#" >View Reimbursements</a></li>
+			<li class="navbar-item"><a class="navbar-brand" href="#create">Create a Reimbursement</a></li>
+		</ul>
+	</nav>
+	<div class="col-md-2"></div>
+	<div ng-view></div>
+<div class="col-md-2"></div>
+</body>
+</html>

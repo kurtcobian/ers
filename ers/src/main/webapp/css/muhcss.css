@@ -1,0 +1,72 @@
+.form-signin {
+	padding: 10%;
+	margin-left: 3%;
+	max-width: 90%;
+}
+
+h2 {
+	width: 50%;
+	margin-left: 25%;
+	text-align: center;
+}
+
+.form-control {
+	width: 35%;
+	margin-left: 33%;
+	margin-bottom: 5px;
+}
+
+.checkbox {
+	width: 35%;
+	margin-left: 33%;
+}
+
+body {
+	background-color: whitesmoke;
+}
+
+ul {
+	list-style: none;
+	padding: 0px;
+}
+
+a {
+	color: white !important;
+}
+
+a:visited {
+	color: white !important;
+}
+
+a:hover {
+	color: white !important;
+	background-color: #787878;
+}
+
+a:active {
+	color: white !important;
+	background-color: #787878;
+}
+
+.btn-block {
+	display: block;
+	width: 35%;
+	text-align: center;
+	margin-left: 33%;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: #525152;
+	border-color: #929292;
+}
+
+.btn-primary:hover {
+	background-color: #a7a7a7;
+	border-color: #929292;
+}
+
+.btn-primary:active {
+	color: #787878;
+	background-color: #787878;
+}
