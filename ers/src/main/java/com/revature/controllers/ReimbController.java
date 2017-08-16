@@ -26,7 +26,6 @@ public class ReimbController {
 			req.getRequestDispatcher("index.html").forward(req, resp);
 		} else if (loggedIn.getRole().getRole().equals("Financier")) {
 			// get all user's reimburesments from the DAO
-			System.out.println("Financier");
 			List<Reimbursement> reimbursements = null;
 			try(DataService dservice = new DataService()){
 				reimbursements = dservice.readAllReimb();
@@ -36,7 +35,6 @@ public class ReimbController {
 			Object[] response = {loggedIn.getRole(), reimbursements};
 			new ObjectMapper().writeValue(resp.getWriter(), response);
 		} else {
-			System.out.println("Employee");
 			Object[] response = {loggedIn.getRole(), loggedIn.getReimbs()};
 			new ObjectMapper().writeValue(resp.getWriter(), response);
 		}
