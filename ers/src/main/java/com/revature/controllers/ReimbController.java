@@ -25,7 +25,6 @@ public class ReimbController {
 			resp.getWriter().println("You ain't logged in ninja. Go somewhere else");
 			req.getRequestDispatcher("index.html").forward(req, resp);
 		} else if (loggedIn.getRole().getRole().equals("Financier")) {
-			// get all user's reimburesments from the DAO
 			List<Reimbursement> reimbursements = null;
 			try(DataService dservice = new DataService()){
 				reimbursements = dservice.readAllReimb();
