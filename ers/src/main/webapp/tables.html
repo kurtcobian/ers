@@ -1,3 +1,36 @@
-<div class="col-md-8">
-	I am where you see Reimbursements
+<div class="jumbotron">
+<h2>Reimbursements</h2>
+Type: <select ng-model="q">
+  <option value=""></option>
+  <option value="Lodging">Lodging</option>
+  <option value="Travel">Travel</option>
+  <option value="Food">Food</option>
+  <option value="Other">Other</option>
+</select>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Amount</th>
+			<th>Submitted</th>
+			<th>Resolved</th>
+			<th>Resolver</th>
+			<th>Status</th>
+			<th>Type</th>
+			<th>Author</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="reimb in reimbursements | filter: q">
+			<td>{{reimb.id}}</td>
+			<td>{{reimb.amount}}</td>
+			<td>{{reimb.submitted  | date:"MMM dd, yyyy 'at' h:mma"}}</td>
+			<td>{{reimb.resolved | date:"MMM dd, yyyy 'at' h:mma"}}</td>
+			<td>{{reimb.resolver.firstname}} {{reimb.resolver.lastname}}</td>
+			<td>{{reimb.status.status}}</td>
+			<td>{{reimb.type.type}}</td>
+			<td>{{reimb.author.firstname}} {{reimb.author.lastname}}</td>
+		</tr>
+	</tbody>
+</table>
 </div>

@@ -31,10 +31,13 @@ public class FrontController extends HttpServlet {
 
 	protected void doDispatch(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uri = req.getRequestURI();
-		System.out.println(uri);
 		switch (uri) {
 			case "/ers/login.do": {
 				uCont.login(req, resp);
+				break;
+			}
+			case "/ers/display.do": {
+				rCont.displayAll(req, resp);
 				break;
 			}
 		}

@@ -11,6 +11,6 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>frontController</servlet-name>
-  	<url-pattern>/login.do</url-pattern>
+  	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
 </web-app>

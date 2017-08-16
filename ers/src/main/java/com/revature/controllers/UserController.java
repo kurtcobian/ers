@@ -28,21 +28,17 @@ public class UserController {
 	protected void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
-		System.out.println(username + " " + password);
 		User u;
 		try {
 			u = authenticate(username, password);
 			if (u != null) {
-				System.out.println("User Found: " + u);
 				req.getSession().setAttribute("loggedIn", u);
 				// redirect to secure pages after authentication
-				System.out.println("Sending redirect");
 				resp.sendRedirect("dash.html");
 			} else {
 				// redirect to login page
-				req.getSession().setAttribute("failedlogin", null);
-				resp.sendRedirect("index.html");
-				//req.getRequestDispatcher("index.html").forward(req, resp);
+				req.setAttribute("loginfail", "Authentication Failure");
+				req.getRequestDispatcher("index.html").forward(req, resp);
 			}
 		} catch (SQLException e) {
 			System.out.println("Something went wrong!");
@@ -68,9 +64,12 @@ public class UserController {
 				u.setReimbs(dservice.readByAuthor(u));
 				return u;
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.out.println("Error during Authentication");
 			e.printStackTrace();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 		return null;
 	}

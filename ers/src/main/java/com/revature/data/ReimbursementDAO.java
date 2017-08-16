@@ -65,10 +65,10 @@ public class ReimbursementDAO {
 
 	public List<Reimbursement> readAuthor(User author) throws SQLException {
 		List<Reimbursement> reimbs = new ArrayList<Reimbursement>();
-		String sql = "select " + "r.r_id, r.amount, r.submitted, r.resolved, r.description, r.receipt, r.author, "
+		String sql = "select r.r_id, r.amount, r.submitted, r.resolved, r.description, r.receipt, r.author, "
 				+ "u.u_id, u.firstname, u.lastname, u.email, ro.r_id, ro.role, "
-				+ "r.status_id, s.status, r.type_id, t.type " + "from reimb r "
-				+ "inner join ers_status s on s.s_id = r.status_id " + "inner join ers_type t on t.t_id = r.type_id "
+				+ "r.status_id, s.status, r.type_id, t.type from reimb r "
+				+ "inner join ers_status s on s.s_id = r.status_id inner join ers_type t on t.t_id = r.type_id "
 				+ "left join ers_users u on u.u_id = r.resolver "
 				+ "left join roles ro on u.role_id = ro.r_id where r.author = ?";
 		PreparedStatement pst = conn.prepareStatement(sql);
