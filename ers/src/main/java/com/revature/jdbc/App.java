@@ -25,22 +25,14 @@ public class App {
 	public static void main(String[] args) {
 		java.util.Date today = new java.util.Date();
 		System.out.println("Attempting");
-		try{
-			dservice = new DataService();
-			List<Reimbursement> u = dservice.readByAuthor(new User(2));
-			System.out.println(u);
-		} catch(SQLException e){
-			System.out.println("No work");
-			e.printStackTrace();
+		try(DataService dservice = new DataService()){
+			List<Reimbursement> li = dservice.readAllReimb();
+			for(Reimbursement r : li){
+				System.out.println(r);
+				System.out.println();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				dservice.close();
-				System.out.println("Closed");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		}
 		System.out.println("Donion rings");
 	}

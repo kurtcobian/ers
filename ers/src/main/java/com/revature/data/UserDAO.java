@@ -47,7 +47,6 @@ public class UserDAO {
 	 * @throws SQLException
 	 */
 	public List<User> readEmployees() throws SQLException {
-		// TODO Change to a join instead of doing a sub call to ReimbursementDAO
 		List<User> users = new ArrayList<>();
 		String sql = "select * from ers_users where role_id = 2";
 		PreparedStatement pst = conn.prepareStatement(sql);
@@ -68,7 +67,6 @@ public class UserDAO {
 	 * @throws SQLException
 	 */
 	public User readByUsername(String username) throws SQLException {
-		// TODO Change to a join instead of doing a sub call to ReimbursementDAO
 		String sql = "select u.u_id, u.password, u.firstname, u.lastname, u.email, u.role_id, r.role "
 				+ "from ers_users u inner join roles r on u.role_id = r.r_id "
 				+ "where u.username = ?";
@@ -92,7 +90,6 @@ public class UserDAO {
 	 * @throws SQLException
 	 */
 	public User readByEmail(String email) throws SQLException {
-		// TODO Change to a join instead of doing a sub call to ReimbursementDAO
 		String sql = "select u.u_id, u.username, u.password, u.firstname, u.lastname, u.role_id, r.role "
 				+ "from ers_users u inner join roles r on u.role_id = r.r_id "
 				+ "where u.email = ?";

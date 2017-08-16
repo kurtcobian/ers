@@ -68,7 +68,6 @@ public class UserController {
 			System.out.println("Error during Authentication");
 			e.printStackTrace();
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		return null;

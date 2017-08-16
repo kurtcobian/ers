@@ -76,7 +76,7 @@ public class ReimbursementDAO {
 		ResultSet rs = pst.executeQuery();
 		while (rs.next()) {
 			User resolver;
-			if(rs.getInt(8) == 0){
+			if (rs.getInt(8) == 0) {
 				resolver = null;
 			} else {
 				resolver = new User(rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11),
@@ -88,6 +88,32 @@ public class ReimbursementDAO {
 			reimbs.add(r);
 		}
 		return reimbs;
+	}
+
+	public List<Reimbursement> readAllReimubrsements() throws SQLException {
+		List<Reimbursement> allReimbs = new ArrayList<Reimbursement>();
+		String sql = "select r.r_id, r.amount, r.submitted, r.resolved, r.description, r.receipt, "
+				+ "u.u_id, u.username, u.firstname, u.lastname, u.email, ro.r_id, ro.role, "
+				+ "u2.u_id, u2.username, u2.firstname, u2.lastname, u2.email, ro2.r_id, ro2.role, "
+				+ "r.status_id, s.status, r.type_id, t.type from reimb r "
+				+ "inner join ers_status s on s.s_id = r.status_id inner join ers_type t on t.t_id = r.type_id "
+				+ "left join ers_users u on u.u_id = r.author left join roles ro on u.role_id = ro.r_id "
+				+ "left join ers_users u2 on u2.u_id = r.resolver left join roles ro2 on u2.role_id = ro2.r_id "
+				+ "order by r.r_id";
+		PreparedStatement pst = conn.prepareStatement(sql);
+		ResultSet rs = pst.executeQuery();
+		while (rs.next()) {
+			User author = new User(rs.getInt(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11),
+					new Role(rs.getInt(12), rs.getString(13)), new ArrayList<Reimbursement>());
+
+			User resolver = new User(rs.getInt(14), rs.getString(15), rs.getString(16), rs.getString(17), rs.getString(18),
+					new Role(rs.getInt(19), rs.getString(20)), new ArrayList<Reimbursement>());
+
+			Reimbursement reimb = new Reimbursement(rs.getInt(1), rs.getDouble(2), rs.getTimestamp(3),
+					rs.getTimestamp(4), rs.getString(5), rs.getBlob(6), author, resolver, new Status(rs.getInt(21), rs.getString(22)), new Type(rs.getInt(23), rs.getString(24)));
+			allReimbs.add(reimb);
+		}
+		return allReimbs;
 	}
 
 	/**

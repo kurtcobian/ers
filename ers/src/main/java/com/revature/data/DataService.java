@@ -39,8 +39,11 @@ public class DataService implements AutoCloseable {
 		return reimbDAO.readAuthor(user);
 	}
 
+	public List<Reimbursement> readAllReimb() throws SQLException {
+		return reimbDAO.readAllReimubrsements();
+	}
 
-	//Only can be used by resolvers
+	// Only can be used by resolvers
 	public void updateReimb(Reimbursement reimb) throws SQLException {
 		reimbDAO.update(reimb);
 	}
@@ -52,14 +55,13 @@ public class DataService implements AutoCloseable {
 	public void createUser(User user) throws SQLException {
 		userDAO.create(user);
 	}
-	
+
 	public User readByUsername(String username) throws SQLException {
 		return userDAO.readByUsername(username);
 	}
-	
+
 	public User readByEmail(String email) throws SQLException {
 		return userDAO.readByEmail(email);
 	}
-
 
 }
