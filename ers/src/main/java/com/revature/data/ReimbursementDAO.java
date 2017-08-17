@@ -98,7 +98,8 @@ public class ReimbursementDAO {
 				+ "r.status_id, s.status, r.type_id, t.type from reimb r "
 				+ "inner join ers_status s on s.s_id = r.status_id inner join ers_type t on t.t_id = r.type_id "
 				+ "left join ers_users u on u.u_id = r.author left join roles ro on u.role_id = ro.r_id "
-				+ "left join ers_users u2 on u2.u_id = r.resolver left join roles ro2 on u2.role_id = ro2.r_id";
+				+ "left join ers_users u2 on u2.u_id = r.resolver left join roles ro2 on u2.role_id = ro2.r_id "
+				+ "order by r.r_id";
 		PreparedStatement pst = conn.prepareStatement(sql);
 		ResultSet rs = pst.executeQuery();
 		while (rs.next()) {

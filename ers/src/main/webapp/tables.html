@@ -18,6 +18,7 @@ Type: <select ng-model="q">
 			<th>Status</th>
 			<th>Type</th>
 			<th>Author</th>
+			<th ng-if="role.id == 1">Approve/Deny</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -30,6 +31,7 @@ Type: <select ng-model="q">
 			<td>{{reimb.status.status}}</td>
 			<td>{{reimb.type.type}}</td>
 			<td>{{reimb.author.firstname}} {{reimb.author.lastname}}</td>
+			<td ng-if="role.id == 1"><button style="background-color: #bcf3c6">Approve</button> / <button style="background-color: #f2bdbe">Deny</button></td>
 		</tr>
 	</tbody>
 </table>
