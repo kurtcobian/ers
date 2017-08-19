@@ -1,6 +1,19 @@
 <div class="jumbotron">
 	<h3 style="padding: 0px; margin-top: 0px">Create a new Reimbursement Request</h3>
-	Amount: <br><input type="number" placeholder=$0.00 /><br>
-	Description: <br><textarea rows="2" cols="25"></textarea>
-	
+	<div class="form-group">
+		<form ng-submit="createReimb()">
+			<select ng-model="type">
+				<option value=0>Lodging</option>
+				<option value=1>Travel</option>
+				<option value=2>Food</option>
+				<option value=3>Other</option>
+			</select>
+			<br/>
+			<input class="create-form" type="number" placeholder="$0.00" ng-model="newReimb.amount"/>
+			<br/>
+			<textarea class="create-form" type="text" placeholder="Description" ng-model="newReimb.desc"/></textarea>
+			<br/>
+			<input class="create-form" type="submit" value="Create Reimbursement"/>
+		</form>
+	</div>
 </div>

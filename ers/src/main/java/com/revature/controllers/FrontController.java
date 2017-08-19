@@ -39,6 +39,21 @@ public class FrontController extends HttpServlet {
 				rCont.displayAll(req, resp);
 				break;
 			}
+			case "/ers/approve.do": {
+				System.out.println("Approve got");
+				rCont.approve(req, resp);
+				break;
+			}
+			case "/ers/deny.do": {
+				rCont.deny(req, resp);
+				break;
+			}
+			case "/ers/createReimb.do": {
+				System.out.println("create got");
+				rCont.create(req, resp);
+				break;
+			}
+			
 		}
 	}
 
