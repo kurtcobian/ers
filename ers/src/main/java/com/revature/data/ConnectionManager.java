@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class ConnectionManager {
-	private static String url = "jdbc:oracle:thin:@chinook-rev.cvxprvojwnhc.us-east-1.rds.amazonaws.com:1521:ORCL";
+	private static String url = "ASk me for URL";
 	private static String user = "reimburse";
 	private static String pass = "p4ssw0rd"; //figure a way out of this
 	
